@@ -9,6 +9,16 @@ export const exerciseOptions = {
         'Cache-Control': 'private'
     }
 };
+
+export const youtubeSearchOption = {
+    method: 'GET',
+    // url: 'https://youtube-search-and-download.p.rapidapi.com/video/related',
+    headers: {
+        'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_YOUTUBE_KEY,
+        'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+    }
+};
+
 export const fetchData = async (url, options) => {
     try {
         const response = await fetch(url, options)

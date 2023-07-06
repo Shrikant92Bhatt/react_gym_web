@@ -19,7 +19,7 @@ const Exercises = ({ exercises, setExercises, bodyPart, setBodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       let exercisesData = [];
-      if (bodyPart == 'all') {
+      if (bodyPart === 'all') {
         exercisesData = await fetchData(URL.EXERCISES, exerciseOptions);
       } else {
         exercisesData = await fetchData(`${URL.BODY_PARTS}/${bodyPart}`, exerciseOptions)
