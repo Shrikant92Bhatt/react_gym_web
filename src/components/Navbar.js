@@ -4,7 +4,7 @@ import { Stack } from '@mui/material'
 import Logo from '../assets/images/Logo.png'
 
 const Navbar = () => {
-    return (
+  return (
         <React.Fragment>
 
             <Stack
@@ -20,7 +20,7 @@ const Navbar = () => {
                 </Stack>
             </Stack>
         </React.Fragment>
-    )
+  )
 }
 
 export default Navbar
