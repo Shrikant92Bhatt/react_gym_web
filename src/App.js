@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Box } from '@mui/material';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { Box } from '@mui/material'
 
-import Home from './pages/Home';
-import ExerciseDetail from './pages/ExerciseDetail';
-import './App.css';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import Home from './pages/Home'
+import ExerciseDetail from './pages/ExerciseDetail'
+import './App.css'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 const App = () => {
   return (
-    <Box width={400} sx={{ width: { 'xl': '1488px' } }} m={'auto'}>
+    <Box width={400} sx={{ width: { xl: '1488px' } }} m={'auto'}>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -20,4 +20,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

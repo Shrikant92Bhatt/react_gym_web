@@ -1,9 +1,9 @@
 import React from 'react'
-import { Typography, Box, Stack } from '@mui/material';
-import { URL } from '../utils/constant';
+import { Typography, Box, Stack } from '@mui/material'
+import { URL } from '../utils/constant'
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-    if (!exerciseVideos.length) return 'Loding...';
-    return (
+  if (!exerciseVideos.length) return 'Loding...'
+  return (
         <Box sx={{ mt: { lg: '200px', xs: '20px' } }} p={'20px'}>
             <Typography variant='h4' mb="33px">
                 Watch <span style={{ color: '#ff2526', textTransform: 'capitalize' }} >{name}</span> exercise video.
@@ -13,12 +13,12 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                 flexWrap={'wrap'}
                 alignItems={'center'}
                 sx={{
-                    flexDirection: { lg: 'row' },
-                    gap: { lg: '110px', xs: '0' }
+                  flexDirection: { lg: 'row' },
+                  gap: { lg: '110px', xs: '0' }
                 }}
             >
                 {exerciseVideos.length > 0 && exerciseVideos.slice(0, 6).map((item, index) => {
-                    return (
+                  return (
                         <a
                             key={index}
                             className='exercise-video'
@@ -35,11 +35,11 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                             </Box>
 
                         </a>
-                    )
+                  )
                 })}
             </Stack>
         </Box>
-    )
+  )
 }
 
 export default ExerciseVideos

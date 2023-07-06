@@ -1,35 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import { Pagination, Box, Stack, Typography } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
-import { URL } from '../utils/constant';
-import ExerciseCard from './ExerciseCard';
+import { Pagination, Box, Stack, Typography } from '@mui/material'
+import { exerciseOptions, fetchData } from '../utils/fetchData'
+import { URL } from '../utils/constant'
+import ExerciseCard from './ExerciseCard'
 const Exercises = ({ exercises, setExercises, bodyPart, setBodyPart }) => {
-  console.log('bodypart', bodyPart);
-  const [currentPage, setCurrentPage] = useState(1);
-  const exercisePerPage = 9;
+  console.log('bodypart', bodyPart)
+  const [currentPage, setCurrentPage] = useState(1)
+  const exercisePerPage = 9
 
-  const indexOfLastExercise = currentPage * exercisePerPage;
-  const indexOfFirstExercise = indexOfLastExercise - exercisePerPage;
-  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  const indexOfLastExercise = currentPage * exercisePerPage
+  const indexOfFirstExercise = indexOfLastExercise - exercisePerPage
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
   const paginate = (e, value) => {
-    setCurrentPage(value);
+    setCurrentPage(value)
     window.scroll({ top: 1800, behavior: 'smooth' })
   }
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      let exercisesData = [];
+      let exercisesData = []
       if (bodyPart === 'all') {
-        exercisesData = await fetchData(URL.EXERCISES, exerciseOptions);
+        exercisesData = await fetchData(URL.EXERCISES, exerciseOptions)
       } else {
         exercisesData = await fetchData(`${URL.BODY_PARTS}/${bodyPart}`, exerciseOptions)
       }
 
-      setExercises(exercisesData);
+      setExercises(exercisesData)
     }
-    fetchExercisesData();
-
-  }, [bodyPart]);
+    fetchExercisesData()
+  }, [bodyPart])
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '110px' } }} mt={'50px'} p={'20px'}>
@@ -61,4 +60,4 @@ const Exercises = ({ exercises, setExercises, bodyPart, setBodyPart }) => {
   )
 }
 
-export default Exercises;
+export default Exercises

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Stack, Typography } from '@mui/material'
-import HorizontalScrollBar from './HorizontalScrollBar';
-import Loder from './Loder';
+import HorizontalScrollBar from './HorizontalScrollBar'
+import Loder from './Loder'
 const SimilarExercises = ({ targetMuscle, equipmentExercises }) => {
-    return (
+  return (
         <Box sx={{ mt: { lg: '100px', xs: '0' } }}>
             <Typography variant='h3' mb={'60px'}>
                 Exercise that target the same muscle group
@@ -28,7 +28,7 @@ const SimilarExercises = ({ targetMuscle, equipmentExercises }) => {
 
             </Stack>
         </Box>
-    )
+  )
 }
 
 export default SimilarExercises

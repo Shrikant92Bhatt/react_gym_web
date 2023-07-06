@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Typography, TextField, Stack } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
-import { URL } from '../utils/constant';
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Typography, TextField, Stack } from '@mui/material'
+import { exerciseOptions, fetchData } from '../utils/fetchData'
+import { URL } from '../utils/constant'
 import HorizontalScrollBar from './HorizontalScrollBar'
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('')
   // const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([])
 
   useEffect(() => {
     const fetchExerciseData = async () => {
-      const bodyPartsData = await fetchData(URL.BODY_PARTS_LIST, exerciseOptions);
+      const bodyPartsData = await fetchData(URL.BODY_PARTS_LIST, exerciseOptions)
 
-      setBodyParts(['all', ...bodyPartsData]);
+      setBodyParts(['all', ...bodyPartsData])
     }
 
-    fetchExerciseData();
-
+    fetchExerciseData()
   }, [])
-
 
   const handelSearch = async () => {
     if (search) {
-      const exerciseData = await fetchData(URL.EXERCISES, exerciseOptions);
+      const exerciseData = await fetchData(URL.EXERCISES, exerciseOptions)
       const searchedExercise = exerciseData.filter(
-        (exercise) => (exercise.name.toLowerCase()).indexOf(search) > -1
-          || exercise.bodyPart.toLowerCase().indexOf(search) > -1
-          || exercise.equipment.toLowerCase().indexOf(search) > -1
-          || exercise.target.toLowerCase().indexOf(search) > -1
-      );
-      setSearch('');
-      setExercises(searchedExercise);
+        (exercise) => (exercise.name.toLowerCase()).indexOf(search) > -1 ||
+          exercise.bodyPart.toLowerCase().indexOf(search) > -1 ||
+          exercise.equipment.toLowerCase().indexOf(search) > -1 ||
+          exercise.target.toLowerCase().indexOf(search) > -1
+      )
+      setSearch('')
+      setExercises(searchedExercise)
     }
   }
   return (
@@ -61,8 +59,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         <Button className='search-btn' variant="contained"
           color="error"
           sx={{
-            backgroundColor: "#ff2526",
-            color: "#fff",
+            backgroundColor: '#ff2526',
+            color: '#fff',
             textTransform: 'none',
             width: { lg: '175px', xs: '80px' },
             fontSize: { lg: '20px', xs: '12px' },
@@ -84,4 +82,4 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   )
 }
 
-export default SearchExercises;
+export default SearchExercises
