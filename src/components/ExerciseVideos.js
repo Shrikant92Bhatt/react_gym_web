@@ -27,8 +27,11 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                             rel='noreferrer'
                         >
                             <img src={item.video.thumbnails[0].url} alt={item.video.title} />
-                            <Box>
-                                {item}
+                            <Box varient={'h5'} color={'#000'}>
+                                {item.video.title}
+                            </Box>
+                            <Box varient={'h6'} color={'#000'}>
+                                {item.video.channelName}
                             </Box>
 
                         </a>
